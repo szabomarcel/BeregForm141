@@ -57,7 +57,7 @@ namespace WindowsFormsAlapok
 
         private void atlagszamitas2()
         {
-            //double atlag = listBox_Orszagoklista.Items.;
+            double atlag = listBox_Orszagoklista.Items.Cast<Orszag>().ToList().Average(a => a.Terulet);
         }
 
         private void atlagszamitas()
@@ -167,6 +167,28 @@ namespace WindowsFormsAlapok
                 }
                 MessageBox.Show($"Maximum {keresettOrszag.OrszagNev} területe: {keresettOrszag.Terulet}");
             }
+        }
+
+        private void button_Kereses_Click(object sender, EventArgs e)
+        {
+            int i;
+            string s;
+            s = "Checked items:\n";
+
+            for (i = 0; i < listBox_Orszagoklista.Items.Count; i++)
+            {
+                if (listBox_Orszagoklista.SelectedIndex != (i))
+                {
+                    s = s + "Item " + (i + 1).ToString() + " = " + listBox_Orszagoklista.Items[i].ToString() + "\n";
+                }
+            }
+
+            MessageBox.Show(s);
+            //textBox_KeresettOrszag
+            /*if (String.IsNullOrWhiteSpace(textBox_KeresettOrszag.Text))
+            {
+                listBox_Orszagoklista.SelectedIndex = 0;
+            }*/
         }
     }
 }

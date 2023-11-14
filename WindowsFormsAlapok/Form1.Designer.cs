@@ -231,6 +231,7 @@
             this.button_Kereses.Text = "Keresés";
             this.button_Kereses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_Kereses.UseVisualStyleBackColor = false;
+            this.button_Kereses.Click += new System.EventHandler(this.button_Kereses_Click);
             // 
             // groupBox5
             // 
