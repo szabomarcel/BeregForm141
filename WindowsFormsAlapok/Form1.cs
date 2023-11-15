@@ -20,24 +20,13 @@ namespace WindowsFormsAlapok
 
         private void button_Betoltes_Click(object sender, EventArgs e)
         {
-            Adatbetoltes();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            comboBox_Maximum_Minimum.SelectedIndex=0;
-            Adatbetoltes();
-        }
-
-        private void Adatbetoltes()
-        {
             openFileDialog1.Filter = "vesszővel tagolt csv|*.csv|txt files (*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 0;
             openFileDialog1.Title = "Adatfájl neve";
             openFileDialog1.InitialDirectory = Environment.CurrentDirectory;
             openFileDialog1.FileName = "orszagok.csv";
-            //if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
-            //{
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
                 using (StreamReader sr = new StreamReader(openFileDialog1.FileName))
                 {
                     sr.ReadLine();
@@ -46,7 +35,42 @@ namespace WindowsFormsAlapok
                         listBox_Orszagoklista.Items.Add(new Orszag(sr.ReadLine()));
                     }
                 }
-            //}
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBox_Maximum_Minimum.SelectedIndex = 0;
+            string kiindulasiFajl = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "orszagok.csv";
+            if (File.Exists(kiindulasiFajl))
+            {
+                Adatbetoltes(kiindulasiFajl);
+            }
+        }
+
+        private void Adatbetoltes(string file)
+        {
+            listBox_Orszagoklista.Items.Clear();
+            try
+            {
+                using (StreamReader sr = new StreamReader(file))
+                {
+                    sr.ReadLine();
+                    while (!sr.EndOfStream)
+                    {
+                        listBox_Orszagoklista.Items.Add(new Orszag(sr.ReadLine()));
+                    }
+                }
+
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button_TeruletekAtlaga_Click(object sender, EventArgs e)
@@ -73,14 +97,31 @@ namespace WindowsFormsAlapok
 
         private void button_Megszamolas_Click(object sender, EventArgs e)
         {
-            if (radioButton_LegfeljebbSzazEzer.Checked)
+            if (listBox_Orszagoklista.SelectedIndex < 0)
+            {
+                return;
+            }
+            if (listBox_Orszagoklista.SelectedIndex >= 0)
+            {
+                Orszag kivalasztottOrszag = (Orszag)listBox_Orszagoklista.SelectedItem;
+                bool nagyobbTerulet = kivalasztottOrszag.Terulet > 100000;
+
+                MessageBox.Show($"{kivalasztottOrszag.OrszagNev} {(nagyobbTerulet ? "nagyobb" : "legfeljebb")} 100.000 területű.",
+                                nagyobbTerulet ? "Nagyobb terület" : "Legfeljebb 100.000 terület",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Nincs kijelölt ország.", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            /*f (radioButton_LegfeljebbSzazEzer.Checked)
             {
                 szamolLegfeljebbSzazezer();
             }
             else
             {
                 szamolSzazezerFelet();
-            }
+            }*/
         }
 
         private void szamolSzazezerFelet()
@@ -189,6 +230,16 @@ namespace WindowsFormsAlapok
             {
                 listBox_Orszagoklista.SelectedIndex = 0;
             }*/
+        }
+
+        private void szinvaltoztatas(object sender, EventArgs e)
+        {
+            textBox_KeresettOrszag.BackColor = Color.Aqua;
+        }
+
+        private void textBox_KeresettOrszag_MouseLeave(object sender, EventArgs e)
+        {
+            textBox_KeresettOrszag.BackColor = DefaultBackColor;
         }
     }
 }
