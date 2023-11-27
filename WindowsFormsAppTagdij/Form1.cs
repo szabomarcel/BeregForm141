@@ -128,8 +128,8 @@ namespace WindowsFormsAppTagdij
             string nev = textBox_nev.Text;
             decimal szulev = numericUpDownSzulev.Value;
             decimal irszam = numericUpDownIrszam.Value;
-            string orsz = textBox_orsz.Text;
-            command.CommandText = "UPDATE `ugyfel` SET `azon`= null,`nev`= @nev,`szulev`= @szulev,`irszam`= @irszam,`orsz`= @orsz WHERE 1";
+            string orsz = textBox_orsz.Text;            
+            command.CommandText = "UPDATE `ugyfel` SET `azon`= null,`nev`= @nev,`szulev`= @szulev,`irszam`= @irszam,`orsz`= @orsz WHERE `azon`= @azon";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@nev", nev);
             command.Parameters.AddWithValue("@szulev", szulev);
@@ -170,12 +170,9 @@ namespace WindowsFormsAppTagdij
             decimal szulev = numericUpDownSzulev.Value;
             decimal irszam = numericUpDownIrszam.Value;
             string orsz = textBox_orsz.Text;
-            command.CommandText = "DELETE FROM `ugyfel` WHERE 0";
+            command.CommandText = "DELETE FROM `ugyfel` WHERE `azon` = azon";
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@nev", nev);
-            command.Parameters.AddWithValue("@szulev", szulev);
-            command.Parameters.AddWithValue("@irszam", irszam);
-            command.Parameters.AddWithValue("@orsz", orsz);
+            command.Parameters.AddWithValue("@azon", textBox_azon);            
             try
             {
                 if (connection.State != ConnectionState.Open)
