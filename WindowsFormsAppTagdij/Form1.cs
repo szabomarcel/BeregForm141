@@ -39,12 +39,10 @@ namespace WindowsFormsAppTagdij
         {
             try
             {
-                if (connection.State != Connection.Stete)
+                if (connection.State != ConnectionState.Open)
                 {
-
+                    connection.Open();
                 }
-                connection.Open();
-                command = connection.CreateCommand();
                 command.CommandText = "SELECT `azon`,`nev`,`szulev`,`irszam`,`orsz` FROM `ugyfel` WHERE 1 ORDER BY nev;";
                 using (MySqlDataReader dr = command.ExecuteReader())
                 {

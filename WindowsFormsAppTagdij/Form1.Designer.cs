@@ -53,6 +53,7 @@
             // 
             // listBox_tagok
             // 
+            this.listBox_tagok.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.listBox_tagok.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBox_tagok.FormattingEnabled = true;
             this.listBox_tagok.Location = new System.Drawing.Point(0, 0);
@@ -63,6 +64,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.textBox_orsz);
             this.groupBox1.Controls.Add(this.label5);
@@ -84,6 +87,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Chocolate;
             this.groupBox3.Controls.Add(this.button_torles);
             this.groupBox3.Controls.Add(this.button_modositas);
             this.groupBox3.Controls.Add(this.button_letrehozas);
@@ -97,36 +101,41 @@
             // 
             // button_torles
             // 
+            this.button_torles.BackColor = System.Drawing.SystemColors.Highlight;
             this.button_torles.Location = new System.Drawing.Point(163, 19);
             this.button_torles.Name = "button_torles";
             this.button_torles.Size = new System.Drawing.Size(75, 23);
             this.button_torles.TabIndex = 2;
             this.button_torles.Text = "Törlés";
-            this.button_torles.UseVisualStyleBackColor = true;
+            this.button_torles.UseVisualStyleBackColor = false;
             this.button_torles.Click += new System.EventHandler(this.button_torles_Click);
             // 
             // button_modositas
             // 
+            this.button_modositas.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button_modositas.Location = new System.Drawing.Point(84, 19);
             this.button_modositas.Name = "button_modositas";
             this.button_modositas.Size = new System.Drawing.Size(75, 23);
             this.button_modositas.TabIndex = 1;
             this.button_modositas.Text = "Módosítás";
-            this.button_modositas.UseVisualStyleBackColor = true;
+            this.button_modositas.UseVisualStyleBackColor = false;
             this.button_modositas.Click += new System.EventHandler(this.button_modositas_Click);
             // 
             // button_letrehozas
             // 
+            this.button_letrehozas.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button_letrehozas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_letrehozas.Location = new System.Drawing.Point(3, 19);
             this.button_letrehozas.Name = "button_letrehozas";
             this.button_letrehozas.Size = new System.Drawing.Size(75, 23);
             this.button_letrehozas.TabIndex = 0;
             this.button_letrehozas.Text = "Létrehozás";
-            this.button_letrehozas.UseVisualStyleBackColor = true;
+            this.button_letrehozas.UseVisualStyleBackColor = false;
             this.button_letrehozas.Click += new System.EventHandler(this.button_letrehozas_Click);
             // 
             // textBox_orsz
             // 
+            this.textBox_orsz.BackColor = System.Drawing.SystemColors.Info;
             this.textBox_orsz.Location = new System.Drawing.Point(10, 224);
             this.textBox_orsz.Name = "textBox_orsz";
             this.textBox_orsz.Size = new System.Drawing.Size(100, 20);
@@ -135,6 +144,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label5.Location = new System.Drawing.Point(13, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
@@ -143,6 +153,7 @@
             // 
             // numericUpDownSzulev
             // 
+            this.numericUpDownSzulev.BackColor = System.Drawing.SystemColors.Info;
             this.numericUpDownSzulev.Location = new System.Drawing.Point(10, 180);
             this.numericUpDownSzulev.Maximum = new decimal(new int[] {
             2023,
@@ -167,6 +178,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label4.Location = new System.Drawing.Point(13, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
@@ -175,6 +187,7 @@
             // 
             // numericUpDownIrszam
             // 
+            this.numericUpDownIrszam.BackColor = System.Drawing.SystemColors.Info;
             this.numericUpDownIrszam.Increment = new decimal(new int[] {
             1000,
             0,
@@ -204,7 +217,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 119);
+            this.label3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(13, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 4;
@@ -212,6 +226,7 @@
             // 
             // textBox_nev
             // 
+            this.textBox_nev.BackColor = System.Drawing.SystemColors.Info;
             this.textBox_nev.Location = new System.Drawing.Point(10, 92);
             this.textBox_nev.Name = "textBox_nev";
             this.textBox_nev.Size = new System.Drawing.Size(214, 20);
@@ -220,7 +235,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 76);
+            this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label2.Location = new System.Drawing.Point(13, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 2;
@@ -228,6 +244,7 @@
             // 
             // textBox_azon
             // 
+            this.textBox_azon.BackColor = System.Drawing.SystemColors.Info;
             this.textBox_azon.Location = new System.Drawing.Point(10, 49);
             this.textBox_azon.Name = "textBox_azon";
             this.textBox_azon.ReadOnly = true;
@@ -237,7 +254,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 32);
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(13, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 0;
