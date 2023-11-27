@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,18 +24,19 @@ namespace WindowsFormsAppTagdij
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tagokBetoltese();
-        }
-
-        private void tagokBetoltese()
-        {
             MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder();
             sb.Clear();
             sb.Server = "localhost";
             sb.UserID = "root";
             sb.Password = "";
             sb.Database = "tagdij";
-            MySqlConnection connection = new MySqlConnection(sb.ConnectionString);
+            connection = new MySqlConnection(sb.ConnectionString);
+            command = connection.CreateCommand();
+            tagokBetoltese();
+        }
+
+        private void tagokBetoltese()
+        {
             try
             {
                 if (connection.State != Connection.Stete)
@@ -105,6 +107,89 @@ namespace WindowsFormsAppTagdij
             }
             catch (MySqlException ex)
             {
+
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            textBox_nev.Text = "";
+            numericUpDownSzulev.Value = numericUpDownSzulev.Minimum;
+            numericUpDownIrszam.Value = numericUpDownIrszam.Minimum;
+            textBox_orsz.Text = "H";
+        }
+
+        private void button_modositas_Click(object sender, EventArgs e)
+        {
+            listBox_tagok.Items.Clear();
+            //-- A beviteli mezőben lévő adat ellenőrzés
+            if (string.IsNullOrEmpty(textBox_nev.Text))
+            {
+                MessageBox.Show("Nincs módosítva!");
+                return;
+            }
+            //-- STB.
+            string nev = textBox_nev.Text;
+            decimal szulev = numericUpDownSzulev.Value;
+            decimal irszam = numericUpDownIrszam.Value;
+            string orsz = textBox_orsz.Text;
+            command.CommandText = "UPDATE `ugyfel` SET `azon`= null,`nev`= @nev,`szulev`= @szulev,`irszam`= @irszam,`orsz`= @orsz WHERE 1";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@nev", nev);
+            command.Parameters.AddWithValue("@szulev", szulev);
+            command.Parameters.AddWithValue("@irszam", irszam);
+            command.Parameters.AddWithValue("@orsz", orsz);
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                command.ExecuteNonQuery();
+                MessageBox.Show("Sikeres rögzítés");
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            textBox_nev.Text = "";
+            numericUpDownSzulev.Value = numericUpDownSzulev.Minimum;
+            numericUpDownIrszam.Value = numericUpDownIrszam.Minimum;
+            textBox_orsz.Text = "H";
+        }
+
+        private void button_torles_Click(object sender, EventArgs e)
+        {
+            listBox_tagok.Items.Clear();
+            //-- A beviteli mezőben lévő adat ellenőrzés
+            if (string.IsNullOrEmpty(textBox_nev.Text))
+            {
+                MessageBox.Show("Nincs törölve!");
+                return;
+            }
+            //-- STB.
+            string nev = textBox_nev.Text;
+            decimal szulev = numericUpDownSzulev.Value;
+            decimal irszam = numericUpDownIrszam.Value;
+            string orsz = textBox_orsz.Text;
+            command.CommandText = "DELETE FROM `ugyfel` WHERE 0";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@nev", nev);
+            command.Parameters.AddWithValue("@szulev", szulev);
+            command.Parameters.AddWithValue("@irszam", irszam);
+            command.Parameters.AddWithValue("@orsz", orsz);
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                command.ExecuteNonQuery();
+                MessageBox.Show("Sikeres rögzítés");
+            }
+            catch (MySqlException ex)
+            {
+
                 MessageBox.Show(ex.Message);
                 return;
             }
