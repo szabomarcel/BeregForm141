@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,23 @@ namespace WindowsFormsAppLogin
             listBox_Termek.Items.Clear();
             // Az új űrlap megjelenítése
             newForm.Show();
+        }
+
+        private void button_Megvasarlas_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "valaki valaminek a zövege|*.txt";
+            saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            saveFileDialog.FileName = "eredmeny.txt";
+            if (listBox_Termek.SelectedIndex != -1)
+            {
+                string selectedProduct = listBox_Termek.SelectedItem.ToString();
+                listBox_Termek.Items.Remove(selectedProduct);
+            }
+            else
+            {
+                MessageBox.Show("Válasszon ki egy terméket a vásárláshoz!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

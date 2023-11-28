@@ -74,6 +74,7 @@
             this.button_Megvasarlas.TabIndex = 17;
             this.button_Megvasarlas.Text = "Megvásárlás";
             this.button_Megvasarlas.UseVisualStyleBackColor = false;
+            this.button_Megvasarlas.Click += new System.EventHandler(this.button_Megvasarlas_Click);
             // 
             // button_ujrendeles
             // 

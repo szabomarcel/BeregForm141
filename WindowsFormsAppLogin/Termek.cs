@@ -18,13 +18,9 @@ namespace WindowsFormsAppLogin
             this.ar = ar;
             this.db = db;
         }
-
-        public int Termek_nev { get => termek_nev; set => termek_nev = value; }
-        public int Ar { get => ar; set => ar = value; }
-        public int Db { get => db; set => db = value; }
         public override string ToString()
         {
-            return termek_nev;
+            return this.termek_nev + "" + this.ar + "" + this.db + "darab";
         }
     }
 }
