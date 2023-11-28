@@ -36,6 +36,7 @@
             this.textBox_Temek_Nev = new System.Windows.Forms.TextBox();
             this.label_Pizza_Nev = new System.Windows.Forms.Label();
             this.button_termek = new System.Windows.Forms.Button();
+            this.button_kilepes = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox2.Controls.Add(this.button_kilepes);
             this.groupBox2.Controls.Add(this.button_Megvasarlas);
             this.groupBox2.Controls.Add(this.button_ujrendeles);
             this.groupBox2.Controls.Add(this.textBox_Temek_Nev);
@@ -80,7 +82,7 @@
             // 
             this.button_ujrendeles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button_ujrendeles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_ujrendeles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_ujrendeles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_ujrendeles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button_ujrendeles.Location = new System.Drawing.Point(156, 62);
             this.button_ujrendeles.Name = "button_ujrendeles";
@@ -112,7 +114,7 @@
             this.button_termek.BackColor = System.Drawing.Color.Black;
             this.button_termek.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_termek.Enabled = false;
-            this.button_termek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_termek.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_termek.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_termek.Location = new System.Drawing.Point(32, 13);
             this.button_termek.Name = "button_termek";
@@ -121,6 +123,22 @@
             this.button_termek.Text = "Feltöltés";
             this.button_termek.UseVisualStyleBackColor = false;
             this.button_termek.Click += new System.EventHandler(this.button_termek_Click);
+            // 
+            // button_kilepes
+            // 
+            this.button_kilepes.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
+            this.button_kilepes.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button_kilepes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button_kilepes.Enabled = false;
+            this.button_kilepes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_kilepes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button_kilepes.Location = new System.Drawing.Point(219, 32);
+            this.button_kilepes.Name = "button_kilepes";
+            this.button_kilepes.Size = new System.Drawing.Size(75, 23);
+            this.button_kilepes.TabIndex = 17;
+            this.button_kilepes.Text = "Kilépés";
+            this.button_kilepes.UseVisualStyleBackColor = false;
+            this.button_kilepes.Click += new System.EventHandler(this.button_kilepes_Click);
             // 
             // FormVasarlas
             // 
@@ -152,5 +170,6 @@
         private System.Windows.Forms.TextBox textBox_Temek_Nev;
         private System.Windows.Forms.Label label_Pizza_Nev;
         private System.Windows.Forms.Button button_termek;
+        private System.Windows.Forms.Button button_kilepes;
     }
 }

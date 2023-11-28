@@ -59,5 +59,18 @@ namespace WindowsFormsAppLogin
                 MessageBox.Show("Válasszon ki egy terméket a vásárláshoz!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void button_kilepes_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Valóban ki akar lépni?", "kilépés", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //System.Windows.Forms.Application.Exit();
+                System.Windows.Forms.Application.ExitThread();
+            }
+            else
+            {
+                //e.Cancel = true;
+            }
+        }
     }
 }
