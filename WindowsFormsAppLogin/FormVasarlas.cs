@@ -23,13 +23,13 @@ namespace WindowsFormsAppLogin
         }
         private void listBox_Termek_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxTermekek.SelectedIndex < 0)
+            if (listBox_Termek.SelectedIndex < 0)
             {
                 return;
             }
-            Termek kivalasztottTermek = (Termek)listBoxTermekek.SelectedItem;
-            textBox_azonosito.Text = kivalasztottTermek.termekid.ToString();
-            textBox_termeknev.Text = kivalasztottTermek.termeknev;
+            Termek kivalasztottTermek = (Termek)listBox_Termek.SelectedItem;
+            textBox_azonosito.Text = kivalasztottTermek.termek_id.ToString();
+            //textBox_Termek_Nev.Text = kivalasztottTermek.termek_nev;
             numericUpDown_ar.Value = kivalasztottTermek.ar;
             numericUpDown_raktarKeszlet.Value = kivalasztottTermek.db;
         }

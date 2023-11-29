@@ -31,25 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVasarlas));
             this.listBox_Termek = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox_azonosito = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button_Megvasarlas = new System.Windows.Forms.Button();
             this.button_ujrendeles = new System.Windows.Forms.Button();
-            this.textBox_Temek_Nev = new System.Windows.Forms.TextBox();
+            this.textBox_Termek_Nev = new System.Windows.Forms.TextBox();
             this.label_Pizza_Nev = new System.Windows.Forms.Label();
             this.button_termek = new System.Windows.Forms.Button();
             this.groupBox_Kivalasztas = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_aoznosito = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_raktarKeszlet = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_ar = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox_Kivalasztas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_raktarKeszlet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ar)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_Termek
@@ -64,11 +64,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Controls.Add(this.textBox_aoznosito);
+            this.groupBox2.Controls.Add(this.textBox_azonosito);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.button_Megvasarlas);
             this.groupBox2.Controls.Add(this.button_ujrendeles);
-            this.groupBox2.Controls.Add(this.textBox_Temek_Nev);
+            this.groupBox2.Controls.Add(this.textBox_Termek_Nev);
             this.groupBox2.Controls.Add(this.label_Pizza_Nev);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.groupBox2.Location = new System.Drawing.Point(12, 325);
@@ -77,6 +77,22 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Termék igénylés és mennyisége választás";
+            // 
+            // textBox_azonosito
+            // 
+            this.textBox_azonosito.Location = new System.Drawing.Point(185, 35);
+            this.textBox_azonosito.Name = "textBox_azonosito";
+            this.textBox_azonosito.Size = new System.Drawing.Size(170, 20);
+            this.textBox_azonosito.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(182, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Termék azonosító";
             // 
             // button_Megvasarlas
             // 
@@ -106,12 +122,12 @@
             this.button_ujrendeles.UseVisualStyleBackColor = false;
             this.button_ujrendeles.Click += new System.EventHandler(this.button_ujrendeles_Click);
             // 
-            // textBox_Temek_Nev
+            // textBox_Termek_Nev
             // 
-            this.textBox_Temek_Nev.Location = new System.Drawing.Point(20, 35);
-            this.textBox_Temek_Nev.Name = "textBox_Temek_Nev";
-            this.textBox_Temek_Nev.Size = new System.Drawing.Size(159, 20);
-            this.textBox_Temek_Nev.TabIndex = 14;
+            this.textBox_Termek_Nev.Location = new System.Drawing.Point(20, 35);
+            this.textBox_Termek_Nev.Name = "textBox_Termek_Nev";
+            this.textBox_Termek_Nev.Size = new System.Drawing.Size(159, 20);
+            this.textBox_Termek_Nev.TabIndex = 14;
             // 
             // label_Pizza_Nev
             // 
@@ -140,8 +156,8 @@
             // 
             this.groupBox_Kivalasztas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.groupBox_Kivalasztas.Controls.Add(this.numericUpDown3);
-            this.groupBox_Kivalasztas.Controls.Add(this.numericUpDown2);
-            this.groupBox_Kivalasztas.Controls.Add(this.numericUpDown1);
+            this.groupBox_Kivalasztas.Controls.Add(this.numericUpDown_raktarKeszlet);
+            this.groupBox_Kivalasztas.Controls.Add(this.numericUpDown_ar);
             this.groupBox_Kivalasztas.Controls.Add(this.label4);
             this.groupBox_Kivalasztas.Controls.Add(this.label3);
             this.groupBox_Kivalasztas.Controls.Add(this.label2);
@@ -153,39 +169,26 @@
             this.groupBox_Kivalasztas.TabStop = false;
             this.groupBox_Kivalasztas.Text = "Kiválasztott termék";
             // 
-            // label1
+            // numericUpDown3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Termék azonosító";
+            this.numericUpDown3.Location = new System.Drawing.Point(258, 35);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown3.TabIndex = 5;
             // 
-            // textBox_aoznosito
+            // numericUpDown_raktarKeszlet
             // 
-            this.textBox_aoznosito.Location = new System.Drawing.Point(185, 35);
-            this.textBox_aoznosito.Name = "textBox_aoznosito";
-            this.textBox_aoznosito.Size = new System.Drawing.Size(170, 20);
-            this.textBox_aoznosito.TabIndex = 19;
+            this.numericUpDown_raktarKeszlet.Location = new System.Drawing.Point(132, 36);
+            this.numericUpDown_raktarKeszlet.Name = "numericUpDown_raktarKeszlet";
+            this.numericUpDown_raktarKeszlet.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_raktarKeszlet.TabIndex = 4;
             // 
-            // label2
+            // numericUpDown_ar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Egységár";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(129, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Takrát készlet";
+            this.numericUpDown_ar.Location = new System.Drawing.Point(6, 36);
+            this.numericUpDown_ar.Name = "numericUpDown_ar";
+            this.numericUpDown_ar.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_ar.TabIndex = 3;
             // 
             // label4
             // 
@@ -196,26 +199,23 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Vásárolt darab";
             // 
-            // numericUpDown1
+            // label3
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(6, 36);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(129, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Takrát készlet";
             // 
-            // numericUpDown2
+            // label2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(132, 36);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 4;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(258, 35);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown3.TabIndex = 5;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Egységár";
             // 
             // FormVasarlas
             // 
@@ -238,9 +238,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox_Kivalasztas.ResumeLayout(false);
             this.groupBox_Kivalasztas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_raktarKeszlet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,15 +251,15 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button_Megvasarlas;
         private System.Windows.Forms.Button button_ujrendeles;
-        private System.Windows.Forms.TextBox textBox_Temek_Nev;
+        private System.Windows.Forms.TextBox textBox_Termek_Nev;
         private System.Windows.Forms.Label label_Pizza_Nev;
         private System.Windows.Forms.Button button_termek;
         private System.Windows.Forms.GroupBox groupBox_Kivalasztas;
-        private System.Windows.Forms.TextBox textBox_aoznosito;
+        private System.Windows.Forms.TextBox textBox_azonosito;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_raktarKeszlet;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
