@@ -74,7 +74,8 @@
             // 
             this.button_Login.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_Login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_Login.Location = new System.Drawing.Point(92, 166);
+            this.button_Login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_Login.Location = new System.Drawing.Point(96, 165);
             this.button_Login.Name = "button_Login";
             this.button_Login.Size = new System.Drawing.Size(75, 23);
             this.button_Login.TabIndex = 4;
@@ -96,7 +97,6 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Login";

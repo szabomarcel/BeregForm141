@@ -21,19 +21,43 @@ namespace WindowsFormsAppLogin
         {
             InitializeComponent();
         }
-
-        private void button_termek_Click(object sender, EventArgs e)
+        private void listBox_Termek_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT termek.termek_nev FROM termek WHERE termek.termek_nev=@termek_nev");
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            if (listBoxTermekek.SelectedIndex < 0)
             {
-                listBox_Termek.Text = dr[0].ToString(); // [0] for <column_1>
+                return;
             }
-            /*Program.command.CommandText = "SELECT termek.termek_nev FROM termek WHERE termek.termek_nev=@termek_nev";
-            Program.command.Parameters.AddWithValue("@termek_nev", listBox_Termek.Text);
-            Program.command.Parameters.Clear();*/
+            Termek kivalasztottTermek = (Termek)listBoxTermekek.SelectedItem;
+            textBox_azonosito.Text = kivalasztottTermek.termekid.ToString();
+            textBox_termeknev.Text = kivalasztottTermek.termeknev;
+            numericUpDown_ar.Value = kivalasztottTermek.ar;
+            numericUpDown_raktarKeszlet.Value = kivalasztottTermek.db;
         }
+
+        /*private void button_termek_Click(object sender, EventArgs e)
+        {
+            listBox_Termek.Items.Clear();
+            Program.command.CommandText = "SELECT `termek_id`,`termek_nev`,`ar`,`db` FROM `termek` WHERE 1 ORDER BY termek_nev";
+            try
+            {
+                if (Program.connection.State != ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
+                using (MySqlDataReader dr = Program.command.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        //listBox_Termek.Items.Add(new Termek(dr.GetInt32("termek_id"), dr.GetString("termek_nev"), dr.GetInt32("ar"), dr.GetInt32("db")));
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }*/
 
         private void button_ujrendeles_Click(object sender, EventArgs e)
         {
@@ -46,7 +70,7 @@ namespace WindowsFormsAppLogin
         private void button_Megvasarlas_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "valaki valaminek a zövege|*.txt";
+            saveFileDialog.Filter = "valaki valaminek a szövege|*.txt";
             saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
             saveFileDialog.FileName = "eredmeny.txt";
             if (listBox_Termek.SelectedIndex != -1)
@@ -60,11 +84,16 @@ namespace WindowsFormsAppLogin
             }
         }
 
-        private void button_kilepes_Click(object sender, EventArgs e)
+        /*private void button_kilepes_Click(object sender, EventArgs e)
+        {
+
+        }*/
+
+        private void FormVasarlas_Load(object sender, EventArgs e)
         {
             if (MessageBox.Show("Valóban ki akar lépni?", "kilépés", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                //System.Windows.Forms.Application.Exit();
+                //System.Windows.Forms.Application.Exit();                
                 System.Windows.Forms.Application.ExitThread();
             }
             else
