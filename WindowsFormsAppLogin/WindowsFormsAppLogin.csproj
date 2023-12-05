@@ -98,11 +98,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTermek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTermek.Designer.cs">
+      <DependentUpon>FormTermek.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVasarlas.cs">
       <SubType>Form</SubType>
@@ -115,6 +122,9 @@
     <Compile Include="Termek.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTermek.resx">
+      <DependentUpon>FormTermek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVasarlas.resx">
       <DependentUpon>FormVasarlas.cs</DependentUpon>

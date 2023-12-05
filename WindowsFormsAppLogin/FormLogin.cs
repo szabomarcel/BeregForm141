@@ -20,9 +20,10 @@ namespace WindowsFormsAppLogin
 
         private void button_Login_Click(object sender, EventArgs e)
         {
-            Program.command.CommandText = "SELECT vasarlo.jelszo FROM vasarlo WHERE vasarlo.nev=@nev";
-            Program.command.Parameters.Clear();
-            Program.command.Parameters.AddWithValue("@nev", textBox_nev.Text);
+            bool valid = false;
+            command.CommandText = "SELECT vasarlo.jelszo FROM vasarlo WHERE vasarlo.nev=@nev";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@nev", textBox_nev.Text);
             MySqlDataReader reader = Program.command.ExecuteReader();
             if (reader.Read()) 
             {
@@ -37,6 +38,21 @@ namespace WindowsFormsAppLogin
                     MessageBox.Show("Nem jó");
                 }
             }
+        }
+        public bool validUser(string name, string pass)
+        {
+            int userid = -1;
+            command.CommandText = "SELECT vasarlo.jelszo FROM vasarlo WHERE vasarlo.nev=@nev";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@nev", textBox_nev.Text);
+            MySqlDataReader reader = Program.command.ExecuteReader();
+            if (reader.Read())
+            {
+                string taroltJelszo = reader.GetString("jelszo");
+                Program.UserId = reader.GetInt32("vasarlo");
+                zar();
+            }
+            return userid;
         }
     }
 }
