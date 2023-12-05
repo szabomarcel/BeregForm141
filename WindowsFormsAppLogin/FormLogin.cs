@@ -20,39 +20,10 @@ namespace WindowsFormsAppLogin
 
         private void button_Login_Click(object sender, EventArgs e)
         {
-            bool valid = false;
-            command.CommandText = "SELECT vasarlo.jelszo FROM vasarlo WHERE vasarlo.nev=@nev";
-            command.Parameters.Clear();
-            command.Parameters.AddWithValue("@nev", textBox_nev.Text);
-            MySqlDataReader reader = Program.command.ExecuteReader();
-            if (reader.Read()) 
+            if (Program.db.validUser(textBox_nev.Text, textBox_jelszo.Text) >= 1)
             {
-                string taroltJelszo = reader.GetString("jelszo");
-                if (taroltJelszo.Equals(textBox_jelszo.Text))
-                {
-                    this.Hide();
-                    Program.formVasarlas.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Nem jó");
-                }
+                Program.formVasarlas.Show();
             }
-        }
-        public bool validUser(string name, string pass)
-        {
-            int userid = -1;
-            command.CommandText = "SELECT vasarlo.jelszo FROM vasarlo WHERE vasarlo.nev=@nev";
-            command.Parameters.Clear();
-            command.Parameters.AddWithValue("@nev", textBox_nev.Text);
-            MySqlDataReader reader = Program.command.ExecuteReader();
-            if (reader.Read())
-            {
-                string taroltJelszo = reader.GetString("jelszo");
-                Program.UserId = reader.GetInt32("vasarlo");
-                zar();
-            }
-            return userid;
         }
     }
 }

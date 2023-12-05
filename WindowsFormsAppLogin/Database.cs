@@ -62,5 +62,25 @@ namespace WindowsFormsAppLogin
             }
             return termekek;
         }
+        public bool validUser(string name, string pass)
+        {
+            int userid = -1;
+            command.CommandText = "SELECT vasarlo.jelszo FROM vasarlo WHERE vasarlo.nev=@nev";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@nev", textBox_nev.Text);
+            MySqlDataReader reader = Program.command.ExecuteReader();
+            if (reader.Read())
+            {
+                string taroltJelszo = reader.GetString("jelszo");
+                Program.UserId = reader.GetInt32("vasarlo");
+            }
+            zar();
+            return userid;
+        }
+        public bool vasarlas(int termekId, int darab)
+        {
+            bool siker = false;
+            MySql
+        }
     }
 }
